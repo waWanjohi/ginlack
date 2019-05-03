@@ -1,5 +1,5 @@
 {
     "python.formatting.provider": "autopep8",
     "python.linting.enabled": true,
-    "python.pythonPath": "/home/giddy/anaconda3/bin/python"
+    "python.pythonPath": "/anaconda3/bin/python"
 }
