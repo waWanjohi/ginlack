@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
+
+    {% if title %}
+    <title>Ginlack | {{ title }}</title>
+    {% else %}
+    <title>Ginlack</title>
+    {% endif %}
+
+</head>
+<!-- Header Navigation -->
+<header class="small-header site-header bg-steel">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top bg-info">
+        <div class="container">
+            <a href="{% url 'blog-home' %}" class="navbar-brand mr-5"><strong>{] POSTAR [}</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+                aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle Navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class=" navbar-nav mr-auto">
+                    <a href="{% url 'blog-home' %}" class="nav-item nav-link">HOME</a>
+                    <a href="{% url 'blog-about' %}" class="nav-item nav-link">ABOUT</a>
+                </div>
+
+
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'post-create' %}" class="nav-item nav-link"><small>NEW POST</small></a>
+                    <a href="{% url 'profile' %}" class="nav-item nav-link"><small>PROFILE</small></a>
+                    <a href="{% url 'logout' %}" class="nav-item nav-link"><small>LOGOUT</small></a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="nav-item nav-link"><small>LOGIN</small></a>
+                    <a href="{% url 'register' %}" class="nav-item nav-link"><small>REGISTER</small></a>
+                    {% endif %}
+                </div>
+                <!-- End Navbar Rightside -->
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- Header navigation -->
+
+
+<body>
+    
+
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                
+                {% block content %}{% block modal %}{% endblock modal %}{% endblock content %}
+            </div>
+
+
+            <!-- Honors Bar -->
+            <div class="col-md-4">
+                <div class="container content-section fixed">
+                    <h3>Honors Bar</h3>
+                    <p class='text-muted'> Your greatest achievements will be seen here.
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-light">Latest Posts {{ post.title }}</li>
+                            <li class="list-group-item list-group-item-light">Announcements</li>
+                            <li class="list-group-item list-group-item-light">Calendars</li>
+                            <li class="list-group-item list-group-item-light">etc</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+            <!-- End Honors Bar -->
+
+        </div>
+    </main>
+
+
+    <!-- Footer section -->
+    <div class="cotainer" style="padding-top: 5rem;">
+        <footer class="page-footer blue font-small">
+            <div class="container">
+                <div class="footer-copyright text-center py-3">&copy; 2019 Copyright:
+                    <a href="{% url 'blog-about' %}">Gem Inc.</a>
+                </div>
+                <a class="btn-floating btn-fb mx-1">
+                    <i class="fab FA-FACEBOOK-F"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+    <!-- End footer section -->
+
+    <!-- Load Scripts -->
+    <script src="{% static 'blog/js/jquery.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/autohide.js' %}"></script>
+    <script>
+        $("nav.fixed-top").autoHidingNavbar();
+    </script>
+</body>
+
+</html>

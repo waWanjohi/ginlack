@@ -1,0 +1,58 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section">
+    <div class="media">
+        <img src="{{ user.profile.image.url }}" class="rounded-circle account-img">
+        <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondsary">{{ user.email }}</p>
+        </div>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group container">
+            <legend class="border-bottom mb-4">Profile Info</legend>
+            {{ u_form|crispy }}
+            {{ p_form|crispy }}
+
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Update</button>
+            <a href="{% url 'profile-delete' %}" class="btn btn-danger">Yes, Delete</a>
+
+            <!-- Modal Section -->
+            <button type="button" class="btn btn-danger" data-toggle="modal"
+                data-target="#exampleModal">Delete Account </button>
+            {% block modal %}
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                Modal Title
+                            </h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                                Are you sure you want to delete your account? This process cannot be undone.
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-secondsary btn" type="button" data-dismiss="modal">Cancel</button>
+                            <a href="{% url 'profile-delete' %}" class="btn btn-danger">Yes, Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <!-- Modal Section -->
+            {% endblock modal %}
+
+        </div>
+    </form>
+</div>
+{% endblock %}

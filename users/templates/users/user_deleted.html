@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<h2>Account Deletion</h2>
+<div class="form-group">
+    <h2>Are you sure you want to delete your account? This cannot be undone.</h2>
+    <a class="btn btn-danger" href="{% url 'account-deleted' %}">Yes, delete</a>
+    <a class="btn btn-secondsary" href="{% url 'blog-home' %}">Cancel</a>
+</div>
+
+{% endblock %} 

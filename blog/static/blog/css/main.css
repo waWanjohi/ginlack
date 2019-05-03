@@ -1,0 +1,124 @@
+body {
+    background: #ddd9d9;
+    color: #333333;
+    margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #444444;
+}
+
+ul {
+    margin: 0;
+}
+
+.bg-steel {
+    margin-top: 0;
+    background-color: #1d8bda;
+}
+
+.bg-steel a:hover{
+    color: #d8dbe2 !important;
+}
+
+.site-header, .navbar-nav, .nav-link:hover {
+    color: #ffffff;
+}
+
+.site-header, .navbar-nav, .nav-link.active {
+    font-weight: 500;
+}
+a.content-section:hover{
+    color: rgb(0, 217, 255);
+}
+.content-section {
+    background: #ffffff;
+    padding: 10px, 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.article-title{
+    color: #444444;
+}
+
+a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+}
+
+.article-content {
+    white-space: pre-line;
+}
+
+.article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+    margin-top: 10px;
+
+}
+
+.article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.article-metadata a:hover {
+    color: rgb(70, 66, 66);
+    text-decoration: none;
+}
+
+.article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+}
+
+.account-heading {
+    font-size: 2.5rem;
+}
+
+.special:hover {
+    background: #e7e8eb;
+    padding: 10px, 20px;
+    border: 1px solid #d8dbe2;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    box-shadow: 0 1rem 3rem rgba(37, 37, 37, 0.897) !important;
+}
+
+.postar-btn {
+    background: #ffffff;
+    color: #1d8bda;
+
+}
+
+
+.parallax {
+    background-image: url(../../../../media/profile_pics/ether_slate.jpg);
+    height: 500px;
+    /* parralax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.postar-logo {
+    text-align: center; 
+    color:rgb(144, 145, 146); 
+    font-size: 50px; 
+    padding: 1rem; 
+    padding-bottom: 1rem;
+}

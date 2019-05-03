@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1><strong>About Postar</strong></h1>
+<p>
+    This is where you think out long, litery speaking. Write out your heart and share with fellow writers.
+    Be sure to also give a thumbs up to our site.
+</p>
+<!-- <div class="content-section container"> -->
+    <div class="jumbotron">
+        <h1 class="display-4">
+            What about Gem Inc. ?
+        </h1>
+        <p class="lead">
+            To make all this succesful, Postar has been developed by a world-class software company specialized in
+            python.
+            This company, as you may guess is called Gem.
+            You can <a href="{% url 'gem-home' %}">Visit Site</a> to read more.
+        </p>
+    </div>
+<!-- </div> -->
+<a class="btn postar-btn shadow-lg content-section special btn-lg" href="{% url 'blog-home' %}">Okay, alright </a>
+
+{% endblock %}

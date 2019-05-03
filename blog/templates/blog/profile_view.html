@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section container">
+    <div class="media">
+        <img src="{{ user.profile.image.url }}" class="rounded-circle account-img">
+    </div>
+    <h2>Name: {{ user.first_name }} {{ user.last_name }}</h2>
+    <h2>Username: @{{ user.username }}</h2>
+    <h2>Email: {{ user.email }}</h2>
+
+</div>
+<div class="container">
+    <ul class="conversation">
+        <div class="msg_container">
+            <img src="{{ user.profile.image.url }}" class="rounded-circle account-img">
+        </div>
+    </ul>
+</div>
+<a class="btn-info btn btn-sm" href="#">Send Message</a>
+<a class="btn-outline-info btn btn-sm" href="#">Follow</a>
+
+{% endblock %}
